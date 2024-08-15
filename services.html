@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/gallery/logops.png">
 
    
     <!-- CSS here -->
@@ -59,15 +59,16 @@
                                             <li><a href="index.html">Domů</a></li>
                                             <li><a href="about.html">O mě</a></li>
                                             <li><a href="services.html">Nabídka a ceník</a></li>
+                                            <li><a href="rent.html">Pronájem nosítek a šátků</a></li>
 
                                             <!--<li><a href="blog.html">Blog</a> odkaz na blog.html použít do budoucna-->
                                                 
-                                                <ul class="submenu">
+                                               <!-- <ul class="submenu">
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li><a href="blog_details.html">Blog Details</a></li>
                                                     <li><a href="elements.html">Element</a></li>
                                                 </ul>
-                                            </li>
+                                            </li>-->
                                             <li><a href="contact.html">Kontakt</a></li>
                                         </ul>
                                     </nav>
@@ -110,7 +111,8 @@
     </div>
                             
     <!-- Slider Area End -->
-    <section class="wantToWork-area">
+     <!--Want to work area-->
+     <section class="wantToWork-area">
         <div class="container">
             <div class="wants-wrapper w-padding2">
                 <div class="row align-items-center justify-content-between">
@@ -127,67 +129,111 @@
             </div>
         </div>
     </section>
-     <!--Galerie fotek např. osvedčení-->                
+    
+    
+     <!--Galerie fotek např. osvedčení-->               
      <style>
-        .gallery {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 800px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .gallery img {
-            max-width: 100%;
-            max-height: 100%;
-            transition: transform 0.3s ease;
-        }
-        
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 2;
-        }
-        
-        .prev {
-            left: 800px;
-        }
-        
-        .next {
-            right: 800px;
-        }
+        /* Container for the gallery */
+        /* Container for the gallery */
+/* Container for the gallery */
+/* "Want to Work" area styling */
+.wantToWork-area {
+    padding: 20px 0; /* Reduce padding to bring sections closer */
+}
+
+.wants-wrapper {
+    margin-bottom: 20px; /* Reduce bottom margin */
+}
+
+/* Container for the gallery */
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust height to reduce space */
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0; /* Ensure no extra margin is pushing it down */
+}
+
+.gallery img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+}
+
+/* Navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: black;  /* Changed color to black */
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+    background-color: rgba(255, 255, 255, 0.7); /* Optional: Add background to make arrows more visible */
+    border-radius: 50%; /* Optional: Make the buttons circular */
+}
+
+/* Positioning the buttons at the left and right edges */
+.prev {
+    left: 10px; /* Positioned closer to the left edge */
+}
+
+.next {
+    right: 10px; /* Positioned closer to the right edge */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 576px) {
+    .gallery img {
+        max-height: 60vh;
+    }
+
+    .prev, .next {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+
+
     </style>
-    </head>
-    <body>
-        <div class="gallery">
-            <img src="assets/img/gallery/cenik1.jpg" alt="Image 12">
-            <div class="prev" onclick="prevImage()">&#10094;</div>
-            <div class="next" onclick="nextImage()">&#10095;</div>
-        </div>
-        
-        <script>
-            var images = ["assets/img/gallery/cenik1.jpg","assets/img/gallery/cenik2.jpg","assets/img/gallery/cenik3.jpg"]; // List of image URLs
-            var currentIndex = 0;
-            var imgElement = document.querySelector('.gallery img');
+</head>
+<body>
+    <div class="gallery">
+        <img src="assets/img/gallery/cenik1.jpg" alt="Image 12">
+        <div class="prev" onclick="prevImage()">&#10094;</div>
+        <div class="next" onclick="nextImage()">&#10095;</div>
+    </div>
     
-            function prevImage() {
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-                updateImage();
-            }
+    <script>
+        var images = ["assets/img/gallery/cenik1.jpg", "assets/img/gallery/cenik2.jpg", "assets/img/gallery/cenik3.jpg"]; // List of image URLs
+        var currentIndex = 0;
+        var imgElement = document.querySelector('.gallery img');
     
-            function nextImage() {
-                currentIndex = (currentIndex + 1) % images.length;
-                updateImage();
-            }
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
     
-            function updateImage() {
-                imgElement.src = images[currentIndex];
-            }
-        </script>
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }
+    
+        function updateImage() {
+            imgElement.src = images[currentIndex];
+        }
+    </script>
+    
 <!--konec galerie fotek-->  
     
 
